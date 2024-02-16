@@ -1,4 +1,4 @@
-from weather.app.main import app
+from ..app.main import app
 from fastapi import testclient
 
 client = testclient(app)

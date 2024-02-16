@@ -1,14 +1,23 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
+from .provider.weather import service
 
 app = FastAPI()
 
 
-@app.get("/temperature")  # what will be the temperature in Lisbon in 3 days?
-def get_temperature():
-    return JSONResponse(content={"temperature": 30})
+@app.get("/temperature")
+def get_temperature(city: str, days: int):
+    temperature = service.get_temperature(city, days)
+    try:
+        return JSONResponse(
+            content={
+                "temperature": temperature,
+            }
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/rain")  # Will it rain in Lisbon in 3 days?
-def get_rain():
-    return JSONResponse(content={"rain": 30})
+@app.get("/rain")
+def will_rain():
+    return JSONResponse(content={"rain": True})
