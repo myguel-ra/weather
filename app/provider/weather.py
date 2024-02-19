@@ -7,11 +7,11 @@ class service:
         if city.lower() == "lisbon":
             return 25.5
         else:
-            raise ValueError(f"Temperature data not available for {city}")
+            raise ValueError("The selected city is not available as an option.")
 
     @staticmethod
     def will_rain(city: str, days: int) -> bool:
         if city.lower() == "lisbon":
             return True
         else:
-            raise ValueError(f"Rain data not available for {city}")
+            raise ValueError("The selected city is not available as an option.")
