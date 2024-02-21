@@ -1,7 +1,8 @@
 [tool.poetry]
-name = "weather"
+name = "Weather API"
 version = "0.1.0"
-description = ""
+description = "A FastAPI-based Python application used as demo for predicting temperature and rainfall"
+authors = ["Miguel"]
 readme = "README.md"
 packages = [
     { include = "api" }
