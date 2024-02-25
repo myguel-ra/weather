@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
-from .provider.weather import service
+from .provider.openweathermap.weather import service
 
 app = FastAPI()
 
